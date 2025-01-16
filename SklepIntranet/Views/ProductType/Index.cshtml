@@ -1,0 +1,51 @@
+﻿@model IEnumerable<SklepIntranet.Models.Shop.ProductType>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <button type="button" class="btn btn-primary" onclick="location.href='@Url.Action("Create", "ProductType")'">
+        Dodaj
+    </button>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.ProductTypeName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ProductTypeSubName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Description)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProductTypeName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProductTypeSubName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Description)
+            </td>
+                <td>
+
+                    <a class="btn waves-effect waves-light" asp-action="Edit" asp-route-id="@item.IdProductType">Edytuj</a>
+                    <a class="btn waves-effect waves-light blue" asp-action="Details" asp-route-id="@item.IdProductType">Szczegóły</a>
+                    <a class="btn waves-effect waves-light red" asp-action="Delete" asp-route-id="@item.IdProductType">Usuń</a>
+
+                </td>
+        </tr>
+}
+    </tbody>
+</table>

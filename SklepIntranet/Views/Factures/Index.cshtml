@@ -1,0 +1,109 @@
+﻿@model IEnumerable<SklepIntranet.Models.Finance.Factures>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <button type="button" class="btn btn-primary" onclick="location.href='@Url.Action("Create", "Factures")'">
+        Dodaj
+    </button>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.NrFacture)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DateFacture)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DateSale)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Department)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ClientNdName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ClientNdSurname)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ClientAdressCity)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ClientAdressStreetNr)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ClientContact)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ProductName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PriceNetto)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PriceVAT)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PriceBrutto)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.NrFacture)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DateFacture)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DateSale)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Department)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ClientNdName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ClientNdSurname)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ClientAdressCity)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ClientAdressStreetNr)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ClientContact)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProductName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PriceNetto)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PriceVAT)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PriceBrutto)
+            </td>
+            <td>
+                <a class="btn waves-effect waves-light" asp-action="Edit" asp-route-id="@item.IdFacture">Edytuj</a>
+                <a class="btn waves-effect waves-light blue" asp-action="Details" asp-route-id="@item.IdFacture">Szczegóły</a>
+                <a class="btn waves-effect waves-light red" asp-action="Delete" asp-route-id="@item.IdFacture">Usuń</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

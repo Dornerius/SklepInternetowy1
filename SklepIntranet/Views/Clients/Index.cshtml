@@ -1,0 +1,69 @@
+﻿@model IEnumerable<SklepIntranet.Models.Clients.Clients>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <button type="button" class="btn btn-primary" onclick="location.href='@Url.Action("Create", "Clients")'">
+        Dodaj
+    </button>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.ClientIdNumber)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ClientName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ClientSurname)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ClientEmail)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ClientPhoneNumber)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ClientStatus)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ClientIdNumber)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ClientName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ClientSurname)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ClientEmail)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ClientPhoneNumber)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ClientStatus)
+            </td>
+                <td>
+
+                    <a class="btn waves-effect waves-light" asp-action="Edit" asp-route-id="@item.IdClient">Edytuj</a>
+                    <a class="btn waves-effect waves-light blue" asp-action="Details" asp-route-id="@item.IdClient">Szczegóły</a>
+                    <a class="btn waves-effect waves-light red" asp-action="Delete" asp-route-id="@item.IdClient">Usuń</a>
+
+                </td>
+        </tr>
+}
+    </tbody>
+</table>

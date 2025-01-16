@@ -1,0 +1,58 @@
+﻿@model IEnumerable<SklepIntranet.Models.CMS.Page>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Lista</h1>
+
+<p>
+    <button type="button" class="btn btn-primary" onclick="location.href='@Url.Action("Create", "Page")'">
+        Dodaj
+    </button>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.LinkTitle)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Title)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Content)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Pozition)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.LinkTitle)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Title)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Content)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Pozition)
+            </td>
+                IdFacture
+                <td>
+
+                    <a class="btn waves-effect waves-light" asp-action="Edit" asp-route-id="@item.IdPage">Edytuj</a>
+                    <a class="btn waves-effect waves-light blue" asp-action="Details" asp-route-id="@item.IdPage">Szczegóły</a>
+                    <a class="btn waves-effect waves-light red" asp-action="Delete" asp-route-id="@item.IdPage">Usuń</a>
+
+                </td>
+        </tr>
+}
+    </tbody>
+</table>

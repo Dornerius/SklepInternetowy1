@@ -1,0 +1,72 @@
+﻿@model SklepIntranet.Models.Clients.Clients
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>Clients</h4>
+<hr />
+<div class="row">
+
+
+    <div class="col s12">
+        @using (Html.BeginForm("Create", "Clients", FormMethod.Post))
+        {
+            @Html.AntiForgeryToken()
+            <div class="row">
+                <div class="input-field col s8">
+                    <i class="material-icons prefix">account_circle</i>
+                    @Html.TextBoxFor(model => model.ClientIdNumber, new { @class = "validate", id = "ClientIdNumber" })
+                    @Html.LabelFor(model => model.ClientIdNumber, "Id Klienta")
+                    @Html.ValidationMessageFor(model => model.ClientIdNumber, "", new { @class = "red-text text-darken-2" })
+                </div>
+                <div class="input-field col s8">
+                    <i class="material-icons prefix">title</i>
+                    @Html.TextBoxFor(model => model.ClientName, new { @class = "validate", id = "ClientName" })
+                    @Html.LabelFor(model => model.ClientName, "Imię")
+                    @Html.ValidationMessageFor(model => model.ClientName, "", new { @class = "red-text text-darken-2" })
+                </div>
+                <div class="input-field col s8">
+                    <i class="material-icons prefix">description</i>
+                    @Html.TextBoxFor(model => model.ClientSurname, new { @class = "materialize-textarea", id = "ClientSurname" })
+                    @Html.LabelFor(model => model.ClientSurname, "Nazwisko")
+                    @Html.ValidationMessageFor(model => model.ClientSurname, "", new { @class = "red-text text-darken-2" })
+                </div>
+                <div class="input-field col s8">
+                    <i class="material-icons prefix">format_list_numbered</i>
+                    @Html.TextBoxFor(model => model.ClientEmail, new { @class = "validate", id = "ClientEmail" })
+                    @Html.LabelFor(model => model.ClientEmail, "e-mail")
+                    @Html.ValidationMessageFor(model => model.ClientEmail, "", new { @class = "red-text text-darken-2" })
+                </div>
+                <div class="input-field col s8">
+                    <i class="material-icons prefix">format_list_numbered</i>
+                    @Html.TextBoxFor(model => model.ClientPhoneNumber, new { @class = "validate", id = "ClientPhoneNumber" })
+                    @Html.LabelFor(model => model.ClientPhoneNumber, "tel.")
+                    @Html.ValidationMessageFor(model => model.ClientPhoneNumber, "", new { @class = "red-text text-darken-2" })
+                </div>  
+                <div class="input-field col s8">
+                    <i class="material-icons prefix">format_list_numbered</i>
+                    @Html.TextBoxFor(model => model.ClientStatus, new { @class = "validate", id = "ClientStatus" })
+                    @Html.LabelFor(model => model.ClientStatus, "Status")
+                    @Html.ValidationMessageFor(model => model.ClientStatus, "", new { @class = "red-text text-darken-2" })
+                </div>
+                <div class="input-field col s8">
+                    <button type="submit" class="btn waves-effect waves-light">
+                        Dodaj
+                        <i class="material-icons right">send</i>
+                    </button>
+                    <a class="btn-floating btn-large waves-effect waves-light red" asp-action="Index">
+                        <i class="material-icons">undo</i>
+                    </a>
+                </div>
+            </div>
+        }
+    </div> 
+</div>
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

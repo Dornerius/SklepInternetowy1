@@ -1,0 +1,61 @@
+﻿@model SklepIntranet.Models.CMS.News
+
+@{
+    ViewData["Title"] = "Edytuj";
+}
+
+<h1>Edytuj</h1>
+
+<h4>Aktualności</h4>
+<hr />
+<div class="row">
+    <div class="col s12">
+        @using (Html.BeginForm("Edit", "News", FormMethod.Post))
+        {
+            @Html.AntiForgeryToken()
+            @Html.HiddenFor(model => model.IdNews)
+            <div class="row">
+                <div class="input-field col s8">
+                    <i class="material-icons prefix">account_circle</i>
+                    @Html.TextBoxFor(model => model.LinkTitle, new { @class = "validate", id = "LinkTitle" })
+                    @Html.LabelFor(model => model.LinkTitle, "Tytuł odnośnika")
+                    @Html.ValidationMessageFor(model => model.LinkTitle, "", new { @class = "red-text text-darken-2" })
+                </div>
+                <div class="input-field col s8">
+                    <i class="material-icons prefix">title</i>
+                    @Html.TextBoxFor(model => model.Title, new { @class = "validate", id = "Title" })
+                    @Html.LabelFor(model => model.Title, "Tytuł")
+                    @Html.ValidationMessageFor(model => model.Title, "", new { @class = "red-text text-darken-2" })
+                </div>
+                <div class="input-field col s8">
+                    <i class="material-icons prefix">description</i>
+                    @Html.TextAreaFor(model => model.Content, new { @class = "materialize-textarea", id = "Content" })
+                    @Html.LabelFor(model => model.Content, "Treść")
+                    @Html.ValidationMessageFor(model => model.Content, "", new { @class = "red-text text-darken-2" })
+                </div>
+                <div class="input-field col s8">
+                    <i class="material-icons prefix">format_list_numbered</i>
+                    @Html.TextBoxFor(model => model.Position, new { @class = "validate", id = "Position" })
+                    @Html.LabelFor(model => model.Position, "Pozycja wyświetlania")
+                    @Html.ValidationMessageFor(model => model.Position, "", new { @class = "red-text text-darken-2" })
+                </div>
+                <div class="input-field col s8">
+                    <button type="submit" class="btn waves-effect waves-light">
+                        Zapisz
+                        <i class="material-icons right">save</i>
+                    </button>
+                    <a class="btn waves-effect waves-light red" asp-action="Index">
+                        Powrót do listy
+                        <i class="material-icons right">arrow_back</i>
+                    </a>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

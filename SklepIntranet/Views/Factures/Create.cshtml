@@ -1,0 +1,148 @@
+﻿@model SklepIntranet.Models.Finance.Factures
+
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Dodaj nową fakturę</h1>
+
+<hr />
+<div class="row">
+    <div class="col s12">
+        @using (Html.BeginForm("Create", "Factures", FormMethod.Post))
+        {
+            @Html.AntiForgeryToken()
+            <div class="row">
+                <div class="input-field col s8">
+                    <i class="material-icons prefix">receipt</i>
+                    @Html.TextBoxFor(model => model.NrFacture, new { @class = "number", id = "NrFacture" })
+                    @Html.LabelFor(model => model.NrFacture, "Podaj nr faktury")
+                    @Html.ValidationMessageFor(model => model.NrFacture, "", new { @class = "red-text text-darken-2" })
+                </div>
+
+                <div class="input-field col s8">
+                    <i class="material-icons prefix">event</i>
+                    @Html.TextBoxFor(model => model.DateFacture, new { @class = "date", id = "DateFacture" })
+                    @Html.LabelFor(model => model.DateFacture, "Podaj datę wystawienia faktury")
+                    @Html.ValidationMessageFor(model => model.DateFacture, "", new { @class = "red-text text-darken-2" })
+                </div>
+
+                <div class="input-field col s8">
+                    <i class="material-icons prefix">schedule</i>
+                    @Html.TextBoxFor(model => model.DateSale, new { @class = "date", id = "DateSale" })
+                    @Html.LabelFor(model => model.DateSale, "Podaj datę transakcji")
+                    @Html.ValidationMessageFor(model => model.DateSale, "", new { @class = "red-text text-darken-2" })
+                </div>
+
+                <div class="input-field col s8">
+                    <i class="material-icons prefix">format_list_numbered</i>
+                    @Html.TextBoxFor(model => model.Department, new { @class = "text", id = "Department" })
+                    @Html.LabelFor(model => model.Department, "Podaj nazwę działu który sprzedał towar")
+                    @Html.ValidationMessageFor(model => model.Department, "", new { @class = "red-text text-darken-2" })
+                </div>
+
+                <div class="input-field col s8">
+                    <i class="material-icons prefix">format_list_numbered</i>
+                    @Html.TextBoxFor(model => model.ClientNdName, new { @class = "text", id = "ClientNdName" })
+                    @Html.LabelFor(model => model.ClientNdName, "Podaj imię klienta, który nie jest zarejestrowany w bazie")
+                    @Html.ValidationMessageFor(model => model.ClientNdName, "", new { @class = "red-text text-darken-2" })
+                </div>
+
+                <div class="input-field col s8">
+                    <i class="material-icons prefix">business</i>
+                    @Html.TextBoxFor(model => model.ClientNdSurname, new { @class = "text", id = "ClientNdSurname" })
+                    @Html.LabelFor(model => model.ClientNdSurname, "Podaj nazwisko kontrahenta, który nie jest zarejestrowany w bazie")
+                    @Html.ValidationMessageFor(model => model.ClientNdSurname, "", new { @class = "red-text text-darken-2" })
+                </div> 
+                
+                <div class="input-field col s8">
+                    <i class="material-icons prefix">format_list_numbered</i>
+                    @Html.TextBoxFor(model => model.ClientAdressCity, new { @class = "text", id = "ClientAdressCity" })
+                    @Html.LabelFor(model => model.ClientAdressCity, "odaj Województwo i Miejscowość zamieszkania kontrahenta, który nie jest zarejestrowany w bazie")
+                    @Html.ValidationMessageFor(model => model.ClientAdressCity, "", new { @class = "red-text text-darken-2" })
+                </div>
+
+                <div class="input-field col s8">
+                    <i class="material-icons prefix">format_list_numbered</i>
+                    @Html.TextBoxFor(model => model.ClientAdressStreetNr, new { @class = "text", id = "ClientAdressStreetNr" })
+                    @Html.LabelFor(model => model.ClientAdressStreetNr, "Podaj ulicę nr posesji i/lub mieszkania zamieszkania kontrahenta, który nie jest zarejestrowany w bazie")
+                    @Html.ValidationMessageFor(model => model.ClientAdressStreetNr, "", new { @class = "red-text text-darken-2" })
+                </div>
+
+                <div class="input-field col s8">
+                    <i class="material-icons prefix">format_list_numbered</i>
+                    @Html.TextBoxFor(model => model.ClientContact, new { @class = "text", id = "ClientContact" })
+                    @Html.LabelFor(model => model.ClientContact, "Podaj dane kontaktowe kontrahenta, który nie jest zarejestrowany w bazie")
+                    @Html.ValidationMessageFor(model => model.ClientContact, "", new { @class = "red-text text-darken-2" })
+                </div>
+                <div class="input-field col s8">
+                    <i class="material-icons prefix">shopping_cart</i>
+                    @Html.TextBoxFor(model => model.ProductName, new { @class = "text", id = "ProductName" })
+                    @Html.LabelFor(model => model.ProductName, "Podaj nazwę towaru.")
+                    @Html.ValidationMessageFor(model => model.ProductName, "", new { @class = "red-text text-darken-2" })
+
+                    <div id="products-container">
+                        <div class="product-item">
+                            <input name="ProductName" type="text" class="validate" />
+                        </div>
+                    </div>
+
+                     <button type="button" id="add-product" class="btn waves-effect waves-light green">
+                        <i class="material-icons left">add</i>Dodaj towar
+                     </button>
+                </div>
+
+                <script>
+                    document.getElementById("add-product").addEventListener("click", function () {
+                        const container = document.getElementById("products-container");
+                        const productItem = document.createElement("div");
+                        productItem.className = "product-item";
+                        productItem.innerHTML = '<input name="ProductName" type="text" class="validate" />';
+                        container.appendChild(productItem);
+                    });
+                </script>
+
+            
+                <div class="input-field col s8">
+                    <i class="material-icons prefix">format_list_numbered</i>
+                    @Html.TextBoxFor(model => model.PriceNetto, new { @class = "number", id = "PriceNetto" })
+                    @Html.LabelFor(model => model.PriceNetto, "Podaj kwotę netto")
+                    @Html.ValidationMessageFor(model => model.PriceNetto, "", new { @class = "red-text text-darken-2" })
+                </div>
+
+                <div class="input-field col s8">
+                    <i class="material-icons prefix">format_list_numbered</i>
+                    @Html.TextBoxFor(model => model.PriceVAT, new { @class = "number", id = "PriceVAT" })
+                    @Html.LabelFor(model => model.PriceVAT, "Podaj kwotę podatku VAT")
+                    @Html.ValidationMessageFor(model => model.PriceVAT, "", new { @class = "red-text text-darken-2" })
+                </div>
+
+                <div class="input-field col s8">
+                    <i class="material-icons prefix">format_list_numbered</i>
+                    @Html.TextBoxFor(model => model.PriceBrutto, new { @class = "number", id = "PriceBrutto" })
+                    @Html.LabelFor(model => model.PriceBrutto, "Podaj kwotę bruttoT")
+                    @Html.ValidationMessageFor(model => model.PriceBrutto, "", new { @class = "red-text text-darken-2" })
+                </div>
+
+                <div class="input-field col s8">
+                    <button type="submit" class="btn waves-effect waves-light">
+                        Dodaj
+                        <i class="material-icons right">send</i>
+                    </button>
+                    <a class="btn-floating btn-large waves-effect waves-light red" asp-action="Index">
+                        <i class="material-icons">undo</i>
+                    </a>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+
+@section Scripts {
+    @{
+
+       
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

@@ -1,0 +1,136 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+    <title>@ViewData["Title"] - FirmaPortalWWW</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="~/lib/materialize/css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection" />
+    <link href="~/css/site.css" type="text/css" rel="stylesheet" media="screen,projection" />
+</head>
+
+<body>
+    <a class="background-image">
+        <img src="~/images/background.jpg" alt="Background Image">
+    </a>    
+    <nav class="light-blue" role="navigation">
+        <a id="logo-container" href="#" class="brand-logo light-blue"> 
+            <img src="~/images/logo.png" alt="Logo Sklepu" style="height: 50px; margin-right: 10px; vertical-align: middle;">
+            TwójSklep.pl</a>
+        <ul class="right hide-on-med-and-down">
+            <li>@Html.ActionLink("Strona główna", "Index", "Home")</li>
+            <li>@Html.ActionLink("O firmie", "About", "Home")</li>
+            <li>@Html.ActionLink("Kontakt", "Contact", "Home")</li>
+        </ul>
+
+        <ul id="nav-mobile" class="light-blue side-nav">
+            <li>@Html.ActionLink("Strona główna", "Index", "Home", null, new { @style = "color: white" })</li>
+            <li>@Html.ActionLink("O firmie", "About", "Home", null, new { @style = "color: white" })</li>
+            <li>@Html.ActionLink("Kontakt", "Contact", "Home", null, new { @style = "color: white" })</li>
+        </ul>
+        <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
+        <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">about</i></a>
+        <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">contact</i></a>
+
+    </nav>
+    
+    <div class="section no-pad-bot" id="index-banner">
+       
+
+        @RenderBody()
+
+    </div>
+
+
+
+
+    <div class="container">
+        <div class="section">            
+            <div class="row">
+                <div class="col s14 m4">
+                    <div class="icon-block">
+                        <h2 class="center light-blue-text"><i class="material-icons">shopping_cart</i></h2>
+                        <h5 class="center">O sklepie</h5>
+
+                        <p class="light">Sklep jest doskonały. Sklep jest doskonały. Sklep jest doskonały. Sklep jest doskonały</p>
+                    </div>
+                </div>
+
+                <div class="col s14 m4">
+                    <div class="icon-block">
+                        <h2 class="center light-blue-text"><i class="material-icons">local_shipping</i></h2>
+                        <h5 class="center">O firmie</h5>
+
+                        <p class="light">Firma jest doskonała. Firma jest doskonała Firma jest doskonała Firma jest doskonała Firma jest doskonała Firma jest doskonała</p>
+                    </div>
+                </div>
+
+                <div class="col s14 m4">
+                    <div class="icon-block">
+                        <h2 class="center light-blue-text"><i class="material-icons">business</i></h2>
+                        <h5 class="center">O towarach</h5>
+
+                        <p class="light">Towary są doskonałe Towary są doskonałe Towary są doskonałe Towary są doskonałe</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <br><br>
+
+        <div class="section">
+        </div>
+    </div>
+
+    <footer class="page-footer light-blue">
+        <div class="container">
+            <div class="row">
+                <div class="col l6 s12">
+                    <h5 class="white-text">NASZ SKLEP</h5>
+                    <ul>
+                        <li><a class="grey-text text-lighten-4" href="https://www.youtube.com/watch?v=2yJgwwDcgV8">Witamy</a></li>
+                    </ul>
+
+
+                </div>
+                <div class="col l3 s12">
+                    <h5 class="white-text">My w socialmedich</h5>
+                    <ul>
+                        <li><img src="~/icons/youtube.png" style="height: 30px; margin-right: 10px; vertical-align: middle;"><a class="white-text" href="Http://youtube.com">   You Tube</a></li>
+                        <li><img src="~/icons/instagram.png" style="height: 30px; margin-right: 10px; vertical-align: middle;"><a class="white-text" href="Http://instagram.com">   Instagram</a></li>
+                        <li><img src="~/icons/facebook.png" style="height: 30px; margin-right: 10px; vertical-align: middle;"><a class="white-text" href="Http://facebook.com">   Facebook</a></li>
+                        <li><img src="~/icons/twiter.png" style="height: 30px; margin-right: 10px; vertical-align: middle;"><a class="white-text" href="Http://x.com">   X</a></li>
+                    </ul>
+                </div>
+                <div class="col l3 s12">
+                    <h5 class="white-text">Connect</h5>
+                    <ul>
+                        <li><a class="white-text" href="#!">Link 1</a></li>
+                        <li><a class="white-text" href="#!">Link 2</a></li>
+                        <li><a class="white-text" href="#!">Link 3</a></li>
+                        <li><a class="white-text" href="#!">Link 4</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="footer-copyright">
+            <div class="container">
+                Made by !#$%^
+            </div>
+        </div>
+    </footer>
+
+
+    @RenderSection("Scripts", required: false)
+    <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script src="~/lib/materialize/js/materialize.min.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            $('.button-collapse').sideNav();
+        });
+    </script>
+
+
+</body>
+</html>
