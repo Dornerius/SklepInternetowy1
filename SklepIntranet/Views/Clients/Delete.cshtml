@@ -48,10 +48,20 @@
             @Html.DisplayFor(model => model.ClientStatus)
         </dd>
     </dl>
+
+    <div class="input-field col s8">
+        <button type="submit" value="Delete" class="btn waves-effect waves-light">
+            Usuń
+            <i class="material-icons right">send</i>
+        </button>
+        <a class="btn-floating btn-large waves-effect waves-light red" asp-action="Index">
+            <i class="material-icons">undo</i>
+        </a>
+    </div>
     
-    <form asp-action="Delete">
+    @* <form asp-action="Delete">
         <input type="hidden" asp-for="IdClient" />
         <input type="submit" value="Delete" class="btn btn-danger" /> |
         <a asp-action="Index">Back to List</a>
-    </form>
+    </form> *@
 </div>

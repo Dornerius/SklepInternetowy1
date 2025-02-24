@@ -10,6 +10,7 @@
     <link href="~/lib/materialize/css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/SklepIntranet.styles.css" asp-append-version="true" />
+    
 </head>
 <body>
     <a class="background-image">
@@ -19,7 +20,8 @@
         <a id="logo-container" href="#" class="brand-logo light-blue">
             <img src="~/images/logo.png" alt="Logo Sklepu" style="height: 50px; margin-right: 10px; vertical-align: middle;">
             TwójSklep.pl
-        </a>
+           
+        </a>       
             <ul class="right hide-on-med-and-down">
                 <li>@Html.ActionLink("Strona główna", "Index", "Home")</li>
                 <li>@Html.ActionLink("Aktualności", "Index", "News")</li> 
@@ -71,4 +73,17 @@
             });
         </script>
 </body>
+<footer class="page-footer light-blue">
+    <div class="container">
+        
+    </div>
+    <div class="footer-copyright">
+        <div class="container">
+            Made by !#$%^
+        </div>
+    </div>
+</footer>
+
 </html>
+<script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+<script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script>

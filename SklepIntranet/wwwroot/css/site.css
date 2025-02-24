@@ -19,7 +19,8 @@ html {
 
 .background-image {
     position: fixed;
-    z-index: -2;
+    background-size: cover;    
+    z-index: -1;
     opacity: 0.3;
     width: auto;
     height: auto;
