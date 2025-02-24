@@ -1,4 +1,4 @@
-﻿@model IEnumerable<SklepIntranet.Models.Clients.Clients>
+﻿@model IEnumerable<SklepData.Data.Clients.Clients>
 
 @{
     ViewData["Title"] = "Index";
@@ -7,9 +7,7 @@
 <h1>Index</h1>
 
 <p>
-    <button type="button" class="btn btn-primary" onclick="location.href='@Url.Action("Create", "Clients")'">
-        Dodaj
-    </button>
+    <a asp-action="Create">Create New</a>
 </p>
 <table class="table">
     <thead>
@@ -56,13 +54,11 @@
             <td>
                 @Html.DisplayFor(modelItem => item.ClientStatus)
             </td>
-                <td>
-
-                    <a class="btn waves-effect waves-light" asp-action="Edit" asp-route-id="@item.IdClient">Edytuj</a>
-                    <a class="btn waves-effect waves-light blue" asp-action="Details" asp-route-id="@item.IdClient">Szczegóły</a>
-                    <a class="btn waves-effect waves-light red" asp-action="Delete" asp-route-id="@item.IdClient">Usuń</a>
-
-                </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.IdClient">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.IdClient">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.IdClient">Delete</a>
+            </td>
         </tr>
 }
     </tbody>

@@ -1,5 +1,5 @@
-using Microsoft.AspNetCore.Mvc;
 using SklepIntranet.Models;
+using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 
 namespace SklepIntranet.Controllers

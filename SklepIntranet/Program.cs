@@ -1,9 +1,10 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.DependencyInjection;
-using SklepIntranet.Data;
+using SklepData.Data;
 var builder = WebApplication.CreateBuilder(args);
-builder.Services.AddDbContext<SklepIntranetContext>(options =>
-    options.UseSqlServer(builder.Configuration.GetConnectionString("SklepIntranetContext") ?? throw new InvalidOperationException("Connection string 'SklepIntranetContext' not found.")));
+builder.Services.AddDbContext<SklepContext>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("SklepContext") ?? throw new InvalidOperationException("Connection string 'SklepContext' not found.")));
+
+
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();

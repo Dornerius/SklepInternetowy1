@@ -1,15 +1,13 @@
-﻿@model IEnumerable<SklepIntranet.Models.CMS.Page>
+﻿@model IEnumerable<SklepData.Data.CMS.Page>
 
 @{
     ViewData["Title"] = "Index";
 }
 
-<h1>Lista</h1>
+<h1>Index</h1>
 
 <p>
-    <button type="button" class="btn btn-primary" onclick="location.href='@Url.Action("Create", "Page")'">
-        Dodaj
-    </button>
+    <a asp-action="Create">Create New</a>
 </p>
 <table class="table">
     <thead>
@@ -44,14 +42,11 @@
             <td>
                 @Html.DisplayFor(modelItem => item.Pozition)
             </td>
-                IdFacture
-                <td>
-
-                    <a class="btn waves-effect waves-light" asp-action="Edit" asp-route-id="@item.IdPage">Edytuj</a>
-                    <a class="btn waves-effect waves-light blue" asp-action="Details" asp-route-id="@item.IdPage">Szczegóły</a>
-                    <a class="btn waves-effect waves-light red" asp-action="Delete" asp-route-id="@item.IdPage">Usuń</a>
-
-                </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.IdPage">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.IdPage">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.IdPage">Delete</a>
+            </td>
         </tr>
 }
     </tbody>

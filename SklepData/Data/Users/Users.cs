@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace SklepIntranet.Models.Users
+namespace SklepData.Data.Users
 {
     public class Users
     {

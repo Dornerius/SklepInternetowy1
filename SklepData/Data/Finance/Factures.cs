@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace SklepIntranet.Models.Finance
+namespace SklepData.Data.Finance
 {
     public class Factures
     {

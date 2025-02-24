@@ -1,15 +1,13 @@
-﻿@model IEnumerable<SklepIntranet.Models.CMS.News>
+﻿@model IEnumerable<SklepData.Data.CMS.News>
 
 @{
     ViewData["Title"] = "Index";
 }
 
-<h1>Lista</h1>
+<h1>Index</h1>
 
 <p>
-    <button type="button" class="btn btn-primary" onclick="location.href='@Url.Action("Create", "News")'">
-        Dodaj
-    </button>
+    <a asp-action="Create">Create New</a>
 </p>
 <table class="table">
     <thead>
@@ -45,11 +43,9 @@
                 @Html.DisplayFor(modelItem => item.Position)
             </td>
             <td>
-               
-                <a class="btn waves-effect waves-light" asp-action="Edit" asp-route-id="@item.IdNews">Edytuj</a>
-                <a class="btn waves-effect waves-light blue" asp-action="Details" asp-route-id="@item.IdNews">Szczegóły</a>
-                <a class="btn waves-effect waves-light red" asp-action="Delete" asp-route-id="@item.IdNews">Usuń</a>
-                
+                <a asp-action="Edit" asp-route-id="@item.IdNews">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.IdNews">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.IdNews">Delete</a>
             </td>
         </tr>
 }

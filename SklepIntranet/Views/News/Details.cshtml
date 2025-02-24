@@ -1,13 +1,13 @@
-﻿@model SklepIntranet.Models.CMS.News
+﻿@model SklepData.Data.CMS.News
 
 @{
     ViewData["Title"] = "Details";
 }
 
-<h1>Szczegóły</h1>
+<h1>Details</h1>
 
 <div>
-    <h4>Aktualności</h4>
+    <h4>News</h4>
     <hr />
     <dl class="row">
         <dt class = "col-sm-2">
@@ -37,6 +37,6 @@
     </dl>
 </div>
 <div>
-    <a asp-action="Edit" asp-route-id="@Model?.IdNews">Edytuj</a> |
-    <a asp-action="Index">Powrót do listy</a>
+    <a asp-action="Edit" asp-route-id="@Model?.IdNews">Edit</a> |
+    <a asp-action="Index">Back to List</a>
 </div>

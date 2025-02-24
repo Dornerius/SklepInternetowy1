@@ -1,4 +1,4 @@
-﻿@model SklepIntranet.Models.Clients.Clients
+﻿@model SklepData.Data.Clients.Clients
 
 @{
     ViewData["Title"] = "Create";
@@ -9,63 +9,49 @@
 <h4>Clients</h4>
 <hr />
 <div class="row">
-
-
-    <div class="col s12">
-        @using (Html.BeginForm("Create", "Clients", FormMethod.Post))
-        {
-            @Html.AntiForgeryToken()
-            <div class="row">
-                <div class="input-field col s8">
-                    <i class="material-icons prefix">account_circle</i>
-                    @Html.TextBoxFor(model => model.ClientIdNumber, new { @class = "validate", id = "ClientIdNumber" })
-                    @Html.LabelFor(model => model.ClientIdNumber, "Id Klienta")
-                    @Html.ValidationMessageFor(model => model.ClientIdNumber, "", new { @class = "red-text text-darken-2" })
-                </div>
-                <div class="input-field col s8">
-                    <i class="material-icons prefix">title</i>
-                    @Html.TextBoxFor(model => model.ClientName, new { @class = "validate", id = "ClientName" })
-                    @Html.LabelFor(model => model.ClientName, "Imię")
-                    @Html.ValidationMessageFor(model => model.ClientName, "", new { @class = "red-text text-darken-2" })
-                </div>
-                <div class="input-field col s8">
-                    <i class="material-icons prefix">description</i>
-                    @Html.TextBoxFor(model => model.ClientSurname, new { @class = "materialize-textarea", id = "ClientSurname" })
-                    @Html.LabelFor(model => model.ClientSurname, "Nazwisko")
-                    @Html.ValidationMessageFor(model => model.ClientSurname, "", new { @class = "red-text text-darken-2" })
-                </div>
-                <div class="input-field col s8">
-                    <i class="material-icons prefix">format_list_numbered</i>
-                    @Html.TextBoxFor(model => model.ClientEmail, new { @class = "validate", id = "ClientEmail" })
-                    @Html.LabelFor(model => model.ClientEmail, "e-mail")
-                    @Html.ValidationMessageFor(model => model.ClientEmail, "", new { @class = "red-text text-darken-2" })
-                </div>
-                <div class="input-field col s8">
-                    <i class="material-icons prefix">format_list_numbered</i>
-                    @Html.TextBoxFor(model => model.ClientPhoneNumber, new { @class = "validate", id = "ClientPhoneNumber" })
-                    @Html.LabelFor(model => model.ClientPhoneNumber, "tel.")
-                    @Html.ValidationMessageFor(model => model.ClientPhoneNumber, "", new { @class = "red-text text-darken-2" })
-                </div>  
-                <div class="input-field col s8">
-                    <i class="material-icons prefix">format_list_numbered</i>
-                    @Html.TextBoxFor(model => model.ClientStatus, new { @class = "validate", id = "ClientStatus" })
-                    @Html.LabelFor(model => model.ClientStatus, "Status")
-                    @Html.ValidationMessageFor(model => model.ClientStatus, "", new { @class = "red-text text-darken-2" })
-                </div>
-                <div class="input-field col s8">
-                    <button type="submit" class="btn waves-effect waves-light">
-                        Dodaj
-                        <i class="material-icons right">send</i>
-                    </button>
-                    <a class="btn-floating btn-large waves-effect waves-light red" asp-action="Index">
-                        <i class="material-icons">undo</i>
-                    </a>
-                </div>
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="ClientIdNumber" class="control-label"></label>
+                <input asp-for="ClientIdNumber" class="form-control" />
+                <span asp-validation-for="ClientIdNumber" class="text-danger"></span>
             </div>
-        }
-    </div> 
+            <div class="form-group">
+                <label asp-for="ClientName" class="control-label"></label>
+                <input asp-for="ClientName" class="form-control" />
+                <span asp-validation-for="ClientName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ClientSurname" class="control-label"></label>
+                <input asp-for="ClientSurname" class="form-control" />
+                <span asp-validation-for="ClientSurname" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ClientEmail" class="control-label"></label>
+                <input asp-for="ClientEmail" class="form-control" />
+                <span asp-validation-for="ClientEmail" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ClientPhoneNumber" class="control-label"></label>
+                <input asp-for="ClientPhoneNumber" class="form-control" />
+                <span asp-validation-for="ClientPhoneNumber" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ClientStatus" class="control-label"></label>
+                <input asp-for="ClientStatus" class="form-control" />
+                <span asp-validation-for="ClientStatus" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
 </div>
 
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}

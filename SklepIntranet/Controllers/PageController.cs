@@ -1,15 +1,15 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using SklepIntranet.Data;
-using SklepIntranet.Models.CMS;
+using SklepData.Data;
+using SklepData.Data.CMS;
 
 namespace SklepIntranet.Controllers
 {
     public class PageController : Controller
     {
-        private readonly SklepIntranetContext _context;
+        private readonly SklepContext _context;
 
-        public PageController(SklepIntranetContext context)
+        public PageController(SklepContext context)
         {
             _context = context;
         }

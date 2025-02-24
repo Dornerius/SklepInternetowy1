@@ -1,20 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Rendering;
+﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using SklepIntranet.Data;
-using SklepIntranet.Models.Shop;
+using SklepData.Data;
+using SklepData.Data.Shop;
 
 namespace SklepIntranet.Controllers
 {
     public class ProductController : Controller
     {
-        private readonly SklepIntranetContext _context;
+        private readonly SklepContext _context;
 
-        public ProductController(SklepIntranetContext context)
+        public ProductController(SklepContext context)
         {
             _context = context;
         }

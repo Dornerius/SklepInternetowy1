@@ -1,16 +1,15 @@
-﻿
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using SklepIntranet.Data;
-using SklepIntranet.Models.CMS;
+using SklepData.Data;
+using SklepData.Data.CMS;
 
 namespace SklepIntranet.Controllers
 {
     public class NewsController : Controller
     {
-        private readonly SklepIntranetContext _context;
+        private readonly SklepContext _context;
 
-        public NewsController(SklepIntranetContext context)
+        public NewsController(SklepContext context)
         {
             _context = context;
         }
@@ -46,9 +45,11 @@ namespace SklepIntranet.Controllers
         }
 
         // POST: News/Create
+        // To protect from overposting attacks, enable the specific properties you want to bind to.
+        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("LinkTitle,Title,Content,Position")] News news)
+        public async Task<IActionResult> Create([Bind("IdNews,LinkTitle,Title,Content,Position")] News news)
         {
             if (ModelState.IsValid)
             {
@@ -58,7 +59,6 @@ namespace SklepIntranet.Controllers
             }
             return View(news);
         }
-
 
         // GET: News/Edit/5
         public async Task<IActionResult> Edit(int? id)

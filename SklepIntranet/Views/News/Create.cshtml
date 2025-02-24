@@ -1,59 +1,48 @@
-﻿@model SklepIntranet.Models.CMS.News
+﻿@model SklepData.Data.CMS.News
 
 @{
     ViewData["Title"] = "Create";
 }
 
-<h1>Dodaj</h1>
+<h1>Create</h1>
 
-<h4>Aktualności</h4>
+<h4>News</h4>
 <hr />
 <div class="row">
-    <div class="col s12">
-        @using (Html.BeginForm("Create", "News", FormMethod.Post))
-        {
-            @Html.AntiForgeryToken()
-            <div class="row">
-                <div class="input-field col s8">
-                    <i class="material-icons prefix">account_circle</i>
-                    @Html.TextBoxFor(model => model.LinkTitle, new { @class = "validate", id = "LinkTitle" })
-                    @Html.LabelFor(model => model.LinkTitle, "Podaj tytuł odnośnika")
-                    @Html.ValidationMessageFor(model => model.LinkTitle, "", new { @class = "red-text text-darken-2" })
-                </div>
-                <div class="input-field col s8">
-                    <i class="material-icons prefix">title</i>
-                    @Html.TextBoxFor(model => model.Title, new { @class = "validate", id = "Title" })
-                    @Html.LabelFor(model => model.Title, "Tytuł aktualności")
-                    @Html.ValidationMessageFor(model => model.Title, "", new { @class = "red-text text-darken-2" })
-                </div>
-                <div class="input-field col s8">
-                    <i class="material-icons prefix">description</i>
-                    @Html.TextAreaFor(model => model.Content, new { @class = "materialize-textarea", id = "Content" })
-                    @Html.LabelFor(model => model.Content, "Treść")
-                    @Html.ValidationMessageFor(model => model.Content, "", new { @class = "red-text text-darken-2" })
-                </div>
-                <div class="input-field col s8">
-                    <i class="material-icons prefix">format_list_numbered</i>
-                    @Html.TextBoxFor(model => model.Position, new { @class = "validate", id = "Position" })
-                    @Html.LabelFor(model => model.Position, "Pozycja wyświetlania")
-                    @Html.ValidationMessageFor(model => model.Position, "", new { @class = "red-text text-darken-2" })
-                </div>
-                <div class="input-field col s8">
-                    <button type="submit" class="btn waves-effect waves-light">
-                        Dodaj
-                        <i class="material-icons right">send</i>
-                    </button>
-                    <a class="btn-floating btn-large waves-effect waves-light red" asp-action="Index">
-                        <i class="material-icons">undo</i>
-                    </a>
-                </div>
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="LinkTitle" class="control-label"></label>
+                <input asp-for="LinkTitle" class="form-control" />
+                <span asp-validation-for="LinkTitle" class="text-danger"></span>
             </div>
-        }
+            <div class="form-group">
+                <label asp-for="Title" class="control-label"></label>
+                <input asp-for="Title" class="form-control" />
+                <span asp-validation-for="Title" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Content" class="control-label"></label>
+                <input asp-for="Content" class="form-control" />
+                <span asp-validation-for="Content" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Position" class="control-label"></label>
+                <input asp-for="Position" class="form-control" />
+                <span asp-validation-for="Position" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
     </div>
 </div>
 
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
 @section Scripts {
-    @{
-        await Html.RenderPartialAsync("_ValidationScriptsPartial");
-    }
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
 }

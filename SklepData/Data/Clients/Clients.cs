@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace SklepIntranet.Models.Clients
+namespace SklepData.Data.Clients
 {
     public class Clients
     {
