@@ -97,7 +97,7 @@ namespace SklepIntranet.Controllers
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!NewsExists(news.IdNews))
+                    if (!NewsExists((int)news.IdNews))
                     {
                         return NotFound();
                     }

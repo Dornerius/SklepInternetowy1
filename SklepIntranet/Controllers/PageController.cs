@@ -49,7 +49,7 @@ namespace SklepIntranet.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("IdPage,LinkTitle,Title,Content,Pozition")] Page page)
+        public async Task<IActionResult> Create([Bind("IdPage,LinkTitle,Title,Content,Position")] Page page)
         {
             if (ModelState.IsValid)
             {
@@ -81,7 +81,7 @@ namespace SklepIntranet.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("IdPage,LinkTitle,Title,Content,Pozition")] Page page)
+        public async Task<IActionResult> Edit(int id, [Bind("IdPage,LinkTitle,Title,Content,Position")] Page page)
         {
             if (id != page.IdPage)
             {
@@ -97,7 +97,7 @@ namespace SklepIntranet.Controllers
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!PageExists(page.IdPage))
+                    if (!PageExists((int)page.IdPage))
                     {
                         return NotFound();
                     }

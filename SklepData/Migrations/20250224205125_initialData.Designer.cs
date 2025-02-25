@@ -70,7 +70,7 @@ namespace SklepData.Migrations
                         .HasMaxLength(10)
                         .HasColumnType("nvarchar(10)");
 
-                    b.Property<int>("Pozition")
+                    b.Property<int>("Position")
                         .HasColumnType("int");
 
                     b.Property<string>("Title")

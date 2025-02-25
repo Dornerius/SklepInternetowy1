@@ -1,0 +1,19 @@
+﻿@model IEnumerable<SklepData.Data.CMS.News>
+
+<div class="container">
+    <div class="section">
+        <div class="row">
+            @foreach (var item in Model)
+            {
+                <div class="col s14 m4">
+                    <div class="icon-block">
+                        <h2 class="center light-blue-text"><i class="material-icons">shopping_cart</i></h2>
+                        <h5 class="center">@Html.ActionLink(item.LinkTitle, "Index", "News", new { id = item.IdNews }, null)</h5>
+
+                        <p class="light">@item.Title</p>
+                    </div>
+                </div>
+            }
+        </div>
+
+    </div>

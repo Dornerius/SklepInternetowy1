@@ -1,86 +1,46 @@
-﻿<!DOCTYPE html>
+﻿
+<!DOCTYPE html>
 <html>
 <head>
     <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
     <title>@ViewData["Title"] - FirmaPortalWWW</title>
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true"/>
+    <link rel="stylesheet" href="~/SklepPortalWWW.styles.css" asp-append-version="true"/>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link href="~/lib/materialize/css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection" />
     <link href="~/css/site.css" type="text/css" rel="stylesheet" media="screen,projection" />
 </head>
 
 <body>
-    <a class="background-image">
+     <a class="background-image">
         <img src="~/images/background.jpg" alt="Background Image">
-    </a>    
-    <nav class="light-blue" role="navigation">
-        <a id="logo-container" href="#" class="brand-logo light-blue"> 
-            <img src="~/images/logo.png" alt="Logo Sklepu" style="height: 50px; margin-right: 10px; vertical-align: middle;">
-            TwójSklep.pl</a>
-        <ul class="right hide-on-med-and-down">
-            <li>@Html.ActionLink("Strona główna", "Index", "Home")</li>
-            <li>@Html.ActionLink("O firmie", "About", "Home")</li>
-            <li>@Html.ActionLink("Kontakt", "Contact", "Home")</li>
-        </ul>
-
-        <ul id="nav-mobile" class="light-blue side-nav">
-            <li>@Html.ActionLink("Strona główna", "Index", "Home", null, new { @style = "color: white" })</li>
-            <li>@Html.ActionLink("O firmie", "About", "Home", null, new { @style = "color: white" })</li>
-            <li>@Html.ActionLink("Kontakt", "Contact", "Home", null, new { @style = "color: white" })</li>
-        </ul>
-        <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
-    </nav>
+    </a>
     
+    
+    @await Html.PartialAsync("NavigationLinks", (IEnumerable<SklepData.Data.CMS.Page>)ViewBag.ModelPage)
+    <li>
+        <a class="nav-link text-dark" asp-controller="Home" asp-action="Index" asp-route-id="@item.IdPage">@item.LinkTitle</a>
+    </li>
+
+
     <div class="section no-pad-bot" id="index-banner">
        
 
         @RenderBody()
-
+       
     </div>
-
-
-
-
-    <div class="container">
-        <div class="section">            
-            <div class="row">
-                <div class="col s14 m4">
-                    <div class="icon-block">
-                        <h2 class="center light-blue-text"><i class="material-icons">shopping_cart</i></h2>
-                        <h5 class="center">O sklepie</h5>
-
-                        <p class="light">Sklep jest doskonały. Sklep jest doskonały. Sklep jest doskonały. Sklep jest doskonały</p>
-                    </div>
-                </div>
-
-                <div class="col s14 m4">
-                    <div class="icon-block">
-                        <h2 class="center light-blue-text"><i class="material-icons">local_shipping</i></h2>
-                        <h5 class="center">O firmie</h5>
-
-                        <p class="light">Firma jest doskonała. Firma jest doskonała Firma jest doskonała Firma jest doskonała Firma jest doskonała Firma jest doskonała</p>
-                    </div>
-                </div>
-
-                <div class="col s14 m4">
-                    <div class="icon-block">
-                        <h2 class="center light-blue-text"><i class="material-icons">business</i></h2>
-                        <h5 class="center">O towarach</h5>
-
-                        <p class="light">Towary są doskonałe Towary są doskonałe Towary są doskonałe Towary są doskonałe</p>
-                    </div>
-                </div>
-            </div>
-
-        </div>
+    <br>
+    <br>
+    @await Html.PartialAsync("News", (IEnumerable<SklepData.Data.CMS.News>)ViewBag.ModelNews)
+    
         <br><br>
 
         <div class="section">
         </div>
-    </div>
-
+    <div class="container">
     <footer class="page-footer light-blue">
-        <div class="container">
+        
             <div class="row">
                 <div class="col l6 s12">
                     <h5 class="white-text">NASZ SKLEP</h5>
@@ -102,20 +62,20 @@
                 <div class="col l3 s12">
                     <h5 class="white-text">Connect</h5>
                     <ul>
-                        <li><a class="white-text" href="#!">Link 1</a></li>
-                        <li><a class="white-text" href="#!">Link 2</a></li>
-                        <li><a class="white-text" href="#!">Link 3</a></li>
-                        <li><a class="white-text" href="#!">Link 4</a></li>
+                        <li><a class="white-text" href="Http://onet.cpl">Link 1</a></li>
+                        <li><a class="white-text" href="Http://wp.pl">Link 2</a></li>
+                        <li><a class="white-text" href="Http://allegro.pl">Link 3</a></li>
+                        <li><a class="white-text" href="Http://youtube.coml">Link 4</a></li>
                     </ul>
                 </div>
             </div>
-        </div>
+        
         <div class="footer-copyright">
             <div class="container">
                 Made by !#$%^
             </div>
         </div>
-    </footer>
+    </footer></div>
 
 
     @RenderSection("Scripts", required: false)

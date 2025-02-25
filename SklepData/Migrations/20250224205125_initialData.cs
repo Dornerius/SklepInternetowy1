@@ -81,7 +81,7 @@ namespace SklepData.Migrations
                     LinkTitle = table.Column<string>(type: "nvarchar(10)", maxLength: 10, nullable: false),
                     Title = table.Column<string>(type: "nvarchar(30)", maxLength: 30, nullable: false),
                     Content = table.Column<string>(type: "nvarchar(MAX)", nullable: true),
-                    Pozition = table.Column<int>(type: "int", nullable: false)
+                    Position = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {

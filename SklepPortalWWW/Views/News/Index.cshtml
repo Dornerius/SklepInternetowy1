@@ -1,12 +1,11 @@
-﻿@model SklepData.Data.CMS.Page;
-
+﻿@model SklepData.Data.CMS.News;
 @{
-    ViewData["Title"] = "Home Page";
+    ViewData["Title"] = "News";
 }
 
 <div class="container">
     <br><br>
-    <h1 class="header center indigo-text">@Model.Title</h1>
+    <h1 class="header center indigo-text">Wiadomości: @Model.Title</h1>
     <div class="row center">
         <h5 class="header col s12 light">
             @Model.Content

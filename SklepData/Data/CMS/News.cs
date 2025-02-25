@@ -7,7 +7,7 @@ namespace SklepData.Data.CMS
     {
 
         [Key]
-        public int IdNews { get; set; }
+        public int? IdNews { get; set; }
         [Required(ErrorMessage = "Wpisz tytuł aktualności")]
         [MaxLength(20, ErrorMessage = "Tytuł powinien zawierać max 20 znaków")]
         [Display(Name = "Tytuł odnośnika")]
@@ -21,7 +21,7 @@ namespace SklepData.Data.CMS
         public string? Content { get; set; }
         [Display(Name = "Pozycja Wyswietlania")]
         [Required(ErrorMessage = "Wpisz pozycję wyświetlania")]
-        public int Position { get; set; }
+        public int? Position { get; set; }
 
     }
 }
